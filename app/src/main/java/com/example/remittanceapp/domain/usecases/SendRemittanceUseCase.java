@@ -16,15 +16,14 @@ import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SendRemittanceUseCase {
-    IncomingSystemFeeUseCase systemFeeUseCase;
+
     private Repository repository;
 
     @Inject
     public SendRemittanceUseCase(
-            IncomingSystemFeeUseCase systemFeeUseCase,
             Repository repository
     ) {
-        this.systemFeeUseCase = systemFeeUseCase;
+
         this.repository = repository;
     }
 
@@ -43,23 +42,13 @@ public class SendRemittanceUseCase {
         int receiverMobile = Integer.parseInt(reciverPhone);
         int amount = Integer.parseInt(amountPaid);
 
-        Log.d("SendRemittance" , "expressId: "+expressId);
-        Log.d("SendRemittance" , "senderName: "+senderName);
-        Log.d("SendRemittance" , "senderMobile: "+senderMobile);
-        Log.d("SendRemittance" , "reciverName: "+receiverName);
-        Log.d("SendRemittance" , "reciverMobile: "+receiverMobile);
-        Log.d("SendRemittance" , "amount: "+amount);
-
         return Observable.<ResponseState<String>>create(emitter -> {
 
             emitter.onNext(new ResponseState.Loading<>());
             try {
-
-
                 Single<SendRemittance> observable = repository.sendRemittance(
                             new SendRemittanceRequestBody(expressId, senderName , senderMobile , receiverName , receiverMobile, amount , feeId)
                         )
-                        //.subscribeOn(Schedulers.io()) // to fetch the data on io thread
                         .observeOn(AndroidSchedulers.mainThread());
                 observable.subscribe(
                         response ->{
@@ -81,21 +70,6 @@ public class SendRemittanceUseCase {
                 emitter.onNext(new ResponseState.Error<>(ex.getMessage()));
                 Log.e("SendRemittance" , ex.getMessage());
             }
-            //emitter.onComplete();
         }).subscribeOn(Schedulers.io());
-    }
-
-    @SuppressLint("CheckResult")
-    public void printFeeID(){
-        systemFeeUseCase.getSystemFeeID()
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                        feeID-> {
-                            Log.d("ResponseLogin" , feeID+"");
-                        },
-                        error -> {
-                            Log.e("ResponseLogin" , error.getMessage());
-                        }
-                );
     }
 }

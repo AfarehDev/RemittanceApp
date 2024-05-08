@@ -21,18 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @InstallIn(SingletonComponent.class)
 public class NetworkModule {
 
-    /*@Provides
-    @Singleton
-    public static RemoteAPI provideRemoteAPI(){
-        return new Retrofit.Builder()
-                .baseUrl("https://dev2.cismobile.net/API2/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .build()
-                .create(RemoteAPI.class);
-
-    }*/
-
     @Provides
     @Singleton
     public static Interceptor provideInterceptor(UserDataStore userDataStore){
@@ -63,7 +51,7 @@ public class NetworkModule {
     @Singleton
     public static RemoteAPI provideRemoteAPI(OkHttpClient client){
         return new Retrofit.Builder()
-                .baseUrl("https://dev2.cismobile.net/API2/")
+                .baseUrl("https://dev2.cismobile.net/API2/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .client(client)

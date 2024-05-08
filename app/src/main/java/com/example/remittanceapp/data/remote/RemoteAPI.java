@@ -13,17 +13,15 @@ import retrofit2.http.POST;
 
 public interface RemoteAPI {
 
-/*    @POST("api/Auth/Login")
-    public Call<LoginResponse> login(@Body LoginRequestBody body);*/
 
-    @POST("api/Auth/Login")
+    @POST("Auth/Login")
     public Single<LoginResponse> login(@Body LoginRequestBody body);
 
 
-    @POST("api/Remittance/IncommingSystemFee")
+    @POST("Remittance/IncommingSystemFee")
     public Single<IncomingFee> incomingSystemFee(@Body IncomeFeeRequestBody body);
 
-    @POST("api/Remittance/SendRemittance")
+    @POST("Remittance/SendRemittance")
     public Single<SendRemittance> sendRemittance(@Body SendRemittanceRequestBody body);
 
 

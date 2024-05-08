@@ -32,15 +32,13 @@ public class LoginUseCase {
     @SuppressLint("CheckResult")
     public Observable<ResponseState<String>> login() {
 
-        return Observable.<ResponseState<String>>create(emitter -> {
+        return Observable.<ResponseState<String>>create( emitter -> {
 
             emitter.onNext(new ResponseState.Loading<>());
 
-            LoginRequestBody loginRequestBody = new LoginRequestBody();
-
             try {
-                Single<LoginResponse> observable = repository.login(loginRequestBody)
-                        .subscribeOn(Schedulers.io()) // to fetch the data on io thread
+                Single<LoginResponse> observable = repository.login(new LoginRequestBody())
+                        .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread());
                 observable.subscribe(
                         response ->{
@@ -49,7 +47,7 @@ public class LoginUseCase {
                                         .saveUserData(new UserData(response))
                                         .subscribeOn(Schedulers.io())
                                         .subscribe(() -> {
-                                            // Data saved successfully
+
                                             emitter.onNext(new ResponseState.Success<>("success"));
                                         }, throwable -> {
                                             emitter.onNext(new ResponseState.Error<>(throwable.getMessage()));
@@ -68,7 +66,6 @@ public class LoginUseCase {
                 emitter.onNext(new ResponseState.Error<>(ex.getMessage()));
                 Log.e("ResponseLogin" , ex.getMessage());
             }
-            //emitter.onComplete();
         }).subscribeOn(Schedulers.io());
     }
 }

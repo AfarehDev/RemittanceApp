@@ -25,7 +25,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class SendRemittanceViewModel extends ViewModel {
 
     private ValidateInputs validateInputs;
-    private UserDataStore userDataStore;
     private SendRemittanceUseCase sendRemittanceUseCase;
     private IncomingSystemFeeUseCase systemFeeUseCase;
 
@@ -52,12 +51,10 @@ public class SendRemittanceViewModel extends ViewModel {
     @Inject
     public SendRemittanceViewModel(
             ValidateInputs validateInputs,
-            UserDataStore userDataStore,
             SendRemittanceUseCase sendRemittanceUseCase,
             IncomingSystemFeeUseCase systemFeeUseCase
     ) {
         this.validateInputs = validateInputs;
-        this.userDataStore = userDataStore;
         this.sendRemittanceUseCase = sendRemittanceUseCase;
         this.systemFeeUseCase = systemFeeUseCase;
     }
@@ -73,8 +70,8 @@ public class SendRemittanceViewModel extends ViewModel {
     }
 
     private boolean formValidation() {
-        ValidationResult receiverNameResult = validateInputs.validateName2(receiverName.getValue());
-        ValidationResult senderNameResult = validateInputs.validateName2(senderName.getValue());
+        ValidationResult receiverNameResult = validateInputs.validateName(receiverName.getValue());
+        ValidationResult senderNameResult = validateInputs.validateName(senderName.getValue());
 
         ValidationResult receiverPhoneResult = validateInputs.validatePhoneNumber(receiverPhone.getValue());
         ValidationResult senderPhoneResult = validateInputs.validatePhoneNumber(senderPhone.getValue());
@@ -164,17 +161,6 @@ public class SendRemittanceViewModel extends ViewModel {
 
 
 
-    @SuppressLint("CheckResult")
-    public void getUserData() {
-        userDataStore.getUserData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(userData -> {
-                    // responseMutableLiveData.setValue(userData);
-                }, throwable -> {
-                    //loginError.setValue(throwable.getMessage());
-                });
-    }
 
     public MutableLiveData<Boolean> getSendState() {
         return sendState;

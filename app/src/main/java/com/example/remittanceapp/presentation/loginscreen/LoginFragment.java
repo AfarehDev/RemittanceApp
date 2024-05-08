@@ -54,16 +54,6 @@ public class LoginFragment extends Fragment {
         binding.setLifecycleOwner(this);
 
 
-        /*loginViewModel.getResponseMutableLiveData().observe(getViewLifecycleOwner(), new Observer<LoginResponse>() {
-            @Override
-            public void onChanged(LoginResponse loginResponse) {
-                // Handle the changes in login response here
-                if (loginResponse != null && !Objects.equals(loginResponse.getToken(), "")) {
-                    //navController.navigate(R.id.sendRemittanceFragment);
-                    Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_sendRemittanceFragment);
-                }
-            }
-        });*/
 
         loginViewModel.getLoginState().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
@@ -93,15 +83,6 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
-
-        /*binding.button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_sendRemittanceFragment);
-               // Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_sendRemittanceFragment);
-              //  NavHostFragment.findNavController(new SendRemittanceFragment());
-            }
-        });*/
 
     }
 }

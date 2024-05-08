@@ -16,14 +16,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class IncomingSystemFeeUseCase {
 
     private Repository repository;
-    private UserDataStore userDataStore;
 
     @Inject
     public IncomingSystemFeeUseCase(
-            Repository repository,
-            UserDataStore userDataStore
+            Repository repository
     ) {
-        this.userDataStore = userDataStore;
         this.repository = repository;
     }
 
