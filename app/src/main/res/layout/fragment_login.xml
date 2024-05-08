@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.remittanceapp.presentation.loginscreen.LoginViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_primary_logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/auth_welcome_msg" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="@dimen/_12sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:text="@string/sign_in_msg" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="30dp"
+                android:backgroundTint="#C5E0F4"
+                android:onClick="@{() -> viewModel.login()}"
+                android:text="@string/get_started"
+                android:textSize="@dimen/_18sdp"
+                android:textColor="#4b4b59"
+                app:strokeColor="#373737"
+                app:strokeWidth="3dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

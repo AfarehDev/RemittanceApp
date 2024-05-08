@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Remittance App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_welcome_msg">Welcom To Remittance</string>
+    <string name="sign_in_msg">Sending and receiving money has never been easier. Our app simplifies the process of transferring funds securely and quickly. Whether you need to send money to a loved one or receive funds from a friend, Remittance App has got you covered.</string>
+    <string name="name_et_hint">Enter Name</string>
+    <string name="password_et_hint">Enter Phone Number</string>
+    <string name="sign_in">Sign In</string>
+    <string name="loading">Loading</string>
+    <string name="sending_remittance_title">Send Remittance</string>
+    <string name="sending_remittance_description">Send Remittance Description</string>
+    <string name="receiving_remittance_title">Receive Remittance</string>
+    <string name="receiving_remittance_description">Receive Remittance Description</string>
+    <string name="money">Amount Paid</string>
+    <string name="sender_name">Sender fourth Name</string>
+    <string name="sender_phone">Sender Phone</string>
+    <string name="express_id">Enter Express ID</string>
+    <string name="get_started">Get Started</string>
+    <string name="send_remittance">Send</string>
+    <string name="receiverInfo">Receiver Info</string>
+    <string name="senderInfo">Sender Info</string>
+</resources>

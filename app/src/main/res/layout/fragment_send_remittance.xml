@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.remittanceapp.presentation.sendRemittanceScreen.SendRemittanceViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="start"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:src="@drawable/send_ic"/>
+
+                <!--<androidx.appcompat.widget.AppCompatEditText
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:textAlignment="center"
+                    android:drawableStart="@drawable/name_ic"
+                    android:hint="express_id"
+                    android:inputType="number"
+                    android:text="@={viewModel.expressId}" />-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/sending_remittance_title"
+                        android:textSize="@dimen/_16sdp"
+                        android:drawablePadding="8dp"
+                        android:padding="8dp"
+                        android:textAlignment="center"
+                        android:textColor="#673AB7"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/input_text_field"
+                        android:drawablePadding="8dp"
+                        android:textAlignment="center"
+                        android:hint="@string/express_id"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.expressId}"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--<androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/email_et"
+                style="@style/EditTextStyle"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/name_ic"
+                android:hint="@string/name_et_hint"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.receiverName}" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_centerInParent="true"
+                    android:background="#737373" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/receiverInfo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+
+            <EditText
+                android:id="@+id/email_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/input_text_field"
+                android:drawableStart="@drawable/name_ic"
+                android:drawablePadding="8dp"
+                android:textAlignment="center"
+                android:hint="@string/name_et_hint"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="16dp"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.receiverName}"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff0000"
+                android:textAlignment="center"
+                android:textSize="@dimen/_10sdp"
+                android:text="@={viewModel.receiverNameError}"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/receiver_phone"
+                android:background="@drawable/input_text_field"
+                android:drawableStart="@drawable/phone_ic"
+                android:drawablePadding="8dp"
+                android:textAlignment="center"
+                android:hint="@string/password_et_hint"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="4dp"
+                android:inputType="phone"
+                android:text="@={viewModel.receiverPhone}"
+                />
+
+  <!--          <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/password_et"
+                style="@style/EditTextStyle"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="2dp"
+                android:drawableStart="@drawable/phone_ic"
+                android:hint="@string/password_et_hint"
+                android:inputType="phone"
+                android:text="@={viewModel.receiverPhone}" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#ff0000"
+                android:text="@={viewModel.receiverPhoneError}"
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/money"
+                style="@style/EditTextStyle"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="40dp"
+                android:layout_marginTop="2dp"
+                android:textAlignment="center"
+                android:drawableStart="@drawable/amount_ic"
+                android:hint="@string/money"
+                android:inputType="number"
+                android:text="@={viewModel.amount}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_centerInParent="true"
+                    android:background="#737373" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:text="@string/senderInfo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/sender_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/input_text_field"
+                android:drawableStart="@drawable/name_ic"
+                android:drawablePadding="8dp"
+                android:textAlignment="center"
+                android:hint="@string/sender_name"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="16dp"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.senderName}"
+                />
+
+<!--            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/sender_name"
+                style="@style/EditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textAlignment="center"
+                android:layout_marginTop="36dp"
+                android:drawableStart="@drawable/name_ic"
+                android:hint="@string/sender_name"
+                android:inputType="textPersonName"
+                android:text="@={viewModel.senderName}" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff0000"
+                android:text="@={viewModel.senderNameError}"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/sender_phone"
+                android:background="@drawable/input_text_field"
+                android:drawableStart="@drawable/phone_ic"
+                android:drawablePadding="8dp"
+                android:textAlignment="center"
+                android:hint="@string/sender_phone"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:layout_marginTop="4dp"
+                android:inputType="phone"
+                android:text="@={viewModel.senderPhone}"
+                />
+
+            <!--<androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/sender_phone"
+                style="@style/EditTextStyle"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="2dp"
+                android:drawableStart="@drawable/phone_ic"
+                android:hint="@string/sender_phone"
+                android:inputType="phone"
+                android:text="@={viewModel.senderPhone}" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="#ff0000"
+                android:text="@={viewModel.senderPhoneError}"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/send_remittance"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.validateAndSend()}"
+                android:textSize="@dimen/_18sdp"
+                android:backgroundTint="#C5E0F4"
+                android:textColor="#4b4b59"
+
+                app:strokeColor="#373737"
+                app:strokeWidth="3dp"
+
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

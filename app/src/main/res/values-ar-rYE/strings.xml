@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيق الحوالات</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_welcome_msg">مرحبا في تطبيق حوالات</string>
+    <string name="sign_in_msg">إرسال واستقبال الأموال لم يكن أسهل من ذلك. تطبيقنا يبسط عملية تحويل الأموال بشكل آمن وسريع. سواء كنت بحاجة لإرسال أموال لأحد أحبائك أو استقبال أموال من صديق، تطبيق التحويل الدولي متوفر لخدمتك.</string>
+    <string name="name_et_hint">أدخل اسم المستلم الرباعي</string>
+    <string name="password_et_hint">أدخل رقم هاتف المستلم</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="loading"> يرجى الانتظار </string>
+    <string name="sending_remittance_title">إرسال حوالة</string>
+    <string name="sending_remittance_description">وصف إرسال الحوالة</string>
+    <string name="receiving_remittance_title">استقبال حوالة</string>
+    <string name="receiving_remittance_description">وصف استقبال الحوالة</string>
+    <string name="money">المبلغ المدفوع</string>
+    <string name="sender_name">ادخل اسم المرسل الرباعي</string>
+    <string name="sender_phone">هاتف المرسل</string>
+    <string name="express_id">الرقم التسلسلي</string>
+    <string name="get_started">البدء الان</string>
+    <string name="send_remittance">ارسال</string>
+    <string name="receiverInfo">بيانات المستلم</string>
+    <string name="senderInfo">بيانات المرسل</string>
+</resources>
