@@ -24,6 +24,11 @@ public class IncomingSystemFeeUseCase {
         this.repository = repository;
     }
 
+    /**
+     * This method retrieves the system fee ID witch we need it in (SendRemittance) use case.
+     *
+     * @return A Single<Integer> representing the system fee ID.
+     */
     public Single<Integer> getSystemFeeID(){
 
         return repository.incomingSystemFee(new IncomeFeeRequestBody())

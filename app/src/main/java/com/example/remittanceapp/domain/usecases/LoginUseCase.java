@@ -29,6 +29,12 @@ public class LoginUseCase {
         this.repository = repository;
     }
 
+    /**
+     * This method performs the login operation and returns an Observable with ResponseState containing
+     * the result of the login attempt.
+     *
+     * @return An Observable<ResponseState<String>> representing the login operation result.
+     */
     @SuppressLint("CheckResult")
     public Observable<ResponseState<String>> login() {
 

@@ -1,5 +1,9 @@
 package com.example.remittanceapp.domain.utils;
-
+/**
+ * This class represents different states of a response,
+ * and we use it with any operation that required defferent states such as Idle, Loading, Success, or Error.
+ * @param <T> The type of data associated with the response state.
+ */
 public class ResponseState<T> {
     public static class Idle<T> extends ResponseState<T> {}
     public static class Loading<T> extends ResponseState<T> {}

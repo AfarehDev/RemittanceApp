@@ -20,13 +20,22 @@ public class SendRemittanceUseCase {
     private Repository repository;
 
     @Inject
-    public SendRemittanceUseCase(
-            Repository repository
-    ) {
+    public SendRemittanceUseCase(Repository repository) {this.repository = repository;}
 
-        this.repository = repository;
-    }
 
+    /**
+     * This method sends a remittance and returns an Observable with ResponseState containing
+     * the result of the operation.
+     *
+     * @param feeId        The ID of the fee associated with the remittance.
+     * @param expressID    The express ID associated with the remittance.
+     * @param senderName   The name of the sender.
+     * @param senderPhone  The phone number of the sender.
+     * @param receiverName The name of the receiver.
+     * @param reciverPhone The phone number of the receiver.
+     * @param amountPaid   The amount paid for the remittance.
+     * @return An Observable<ResponseState<String>> representing the result of the remittance operation.
+     */
     @SuppressLint("CheckResult")
     public Observable<ResponseState<String>> sendRemittance(
             int feeId,
