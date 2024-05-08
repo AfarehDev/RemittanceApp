@@ -37,16 +37,6 @@
                     android:layout_height="@dimen/_70sdp"
                     android:src="@drawable/send_ic"/>
 
-                <!--<androidx.appcompat.widget.AppCompatEditText
-                    style="@style/EditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="8dp"
-                    android:textAlignment="center"
-                    android:drawableStart="@drawable/name_ic"
-                    android:hint="express_id"
-                    android:inputType="number"
-                    android:text="@={viewModel.expressId}" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -88,17 +78,6 @@
             </LinearLayout>
 
 
-            <!--<androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/email_et"
-                style="@style/EditTextStyle"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="16dp"
-                android:drawableStart="@drawable/name_ic"
-                android:hint="@string/name_et_hint"
-                android:inputType="textPersonName"
-                android:text="@={viewModel.receiverName}" />-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -169,22 +148,12 @@
                 android:text="@={viewModel.receiverPhone}"
                 />
 
-  <!--          <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/password_et"
-                style="@style/EditTextStyle"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="2dp"
-                android:drawableStart="@drawable/phone_ic"
-                android:hint="@string/password_et_hint"
-                android:inputType="phone"
-                android:text="@={viewModel.receiverPhone}" />-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#ff0000"
                 android:text="@={viewModel.receiverPhoneError}"
                 />
@@ -242,21 +211,12 @@
                 android:text="@={viewModel.senderName}"
                 />
 
-<!--            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/sender_name"
-                style="@style/EditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:textAlignment="center"
-                android:layout_marginTop="36dp"
-                android:drawableStart="@drawable/name_ic"
-                android:hint="@string/sender_name"
-                android:inputType="textPersonName"
-                android:text="@={viewModel.senderName}" />-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#ff0000"
                 android:text="@={viewModel.senderNameError}"
                 />
@@ -278,22 +238,12 @@
                 android:text="@={viewModel.senderPhone}"
                 />
 
-            <!--<androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/sender_phone"
-                style="@style/EditTextStyle"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="2dp"
-                android:drawableStart="@drawable/phone_ic"
-                android:hint="@string/sender_phone"
-                android:inputType="phone"
-                android:text="@={viewModel.senderPhone}" />-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
+                android:textSize="@dimen/_10sdp"
                 android:textColor="#ff0000"
                 android:text="@={viewModel.senderPhoneError}"
                 />
@@ -307,7 +257,6 @@
                 android:textSize="@dimen/_18sdp"
                 android:backgroundTint="#C5E0F4"
                 android:textColor="#4b4b59"
-
                 app:strokeColor="#373737"
                 app:strokeWidth="3dp"
 

@@ -27,10 +27,8 @@ public class NetworkModule {
         return chain -> {
             Request original = chain.request();
 
-            // Retrieve the token from the UserDataStore
             String token = userDataStore.getUserToken();
 
-            // Add the token to the request header
             Request.Builder requestBuilder = original.newBuilder()
                     .header("Authorization", "Bearer " + token);
 
