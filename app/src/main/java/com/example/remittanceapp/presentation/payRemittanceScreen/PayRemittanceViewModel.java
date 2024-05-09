@@ -1,4 +1,4 @@
-package com.example.remittanceapp.presentation.sendRemittanceScreen;
+package com.example.remittanceapp.presentation.payRemittanceScreen;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
@@ -6,9 +6,8 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.remittanceapp.data.preferences_data.UserDataStore;
 import com.example.remittanceapp.domain.usecases.IncomingSystemFeeUseCase;
-import com.example.remittanceapp.domain.usecases.SendRemittanceUseCase;
+import com.example.remittanceapp.domain.usecases.PayRemittanceUseCase;
 import com.example.remittanceapp.domain.usecases.ValidateInputs;
 import com.example.remittanceapp.domain.utils.ResponseState;
 import com.example.remittanceapp.domain.utils.ValidationResult;
@@ -22,45 +21,39 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @HiltViewModel
-public class SendRemittanceViewModel extends ViewModel {
+public class PayRemittanceViewModel extends ViewModel {
+
 
     private ValidateInputs validateInputs;
-    private SendRemittanceUseCase sendRemittanceUseCase;
+    private PayRemittanceUseCase payRemittanceUseCase;
     private IncomingSystemFeeUseCase systemFeeUseCase;
 
     private MutableLiveData<Boolean> sendState = new MutableLiveData<>();
     private MutableLiveData<Boolean> dialogState = new MutableLiveData<>();
     private MutableLiveData<String> sendStateMesssage = new MutableLiveData<>();
 
-    private MutableLiveData<String> receiverName = new MutableLiveData<>();
+    private MutableLiveData<String> receiverName = new MutableLiveData<>("احمد محمد قاسم اليمني");
     private MutableLiveData<String> receiverNameError = new MutableLiveData<>();
 
-    private MutableLiveData<String> senderName = new MutableLiveData<>();
+    private MutableLiveData<String> senderName = new MutableLiveData<>("محمد علي محمد قاسم");
     private MutableLiveData<String> senderNameError = new MutableLiveData<>();
 
-    private MutableLiveData<String> receiverPhone = new MutableLiveData<>();
-    private MutableLiveData<String> receiverPhoneError = new MutableLiveData<>();
-
-    private MutableLiveData<String> senderPhone = new MutableLiveData<>();
-    private MutableLiveData<String> senderPhoneError = new MutableLiveData<>();
-
-    private MutableLiveData<String> amount = new MutableLiveData<>();
-    private MutableLiveData<String> expressId = new MutableLiveData<>("1234");
+    private MutableLiveData<String> amount = new MutableLiveData<>("70000");
+    private MutableLiveData<String> remId = new MutableLiveData<>("698753948");
     private MutableLiveData<Integer> feeId = new MutableLiveData<>(0);
 
     @Inject
-    public SendRemittanceViewModel(
+    public PayRemittanceViewModel(
             ValidateInputs validateInputs,
-            SendRemittanceUseCase sendRemittanceUseCase,
+            PayRemittanceUseCase payRemittanceUseCase,
             IncomingSystemFeeUseCase systemFeeUseCase
     ) {
         this.validateInputs = validateInputs;
-        this.sendRemittanceUseCase = sendRemittanceUseCase;
+        this.payRemittanceUseCase = payRemittanceUseCase;
         this.systemFeeUseCase = systemFeeUseCase;
     }
 
-
-    public void validateAndSend(){
+    public void validateAndPay(){
 
         if (!formValidation()){
             return;
@@ -73,12 +66,9 @@ public class SendRemittanceViewModel extends ViewModel {
         ValidationResult receiverNameResult = validateInputs.validateName(receiverName.getValue());
         ValidationResult senderNameResult = validateInputs.validateName(senderName.getValue());
 
-        ValidationResult receiverPhoneResult = validateInputs.validatePhoneNumber(receiverPhone.getValue());
-        ValidationResult senderPhoneResult = validateInputs.validatePhoneNumber(senderPhone.getValue());
-
 
         boolean hasError = false;
-        for (ValidationResult result : Arrays.asList(receiverNameResult,senderNameResult, receiverPhoneResult, senderPhoneResult)) {
+        for (ValidationResult result : Arrays.asList(receiverNameResult,senderNameResult)) {
             if (!result.isSuccessful()) {
                 hasError = true;
                 break;
@@ -88,10 +78,7 @@ public class SendRemittanceViewModel extends ViewModel {
         if (hasError){
             receiverNameError.setValue(receiverNameResult.getErrorMessage());
             senderNameError.setValue(senderNameResult.getErrorMessage());
-            receiverPhoneError.setValue(receiverPhoneResult.getErrorMessage());
-            senderPhoneError.setValue(senderPhoneResult.getErrorMessage());
             Log.e("ValidationResponse" , receiverNameResult.getErrorMessage());
-            Log.e("ValidationResponse" , receiverPhoneResult.getErrorMessage());
             return false;
         }else {
             return true;
@@ -109,7 +96,7 @@ public class SendRemittanceViewModel extends ViewModel {
                         feeID-> {
                             if (feeID > 0){
                                 feeId.setValue(feeID);
-                                sendRemittance();
+                                payRemittance();
                             }else {
                                 dialogState.setValue(false);
                                 sendStateMesssage.setValue("feeID : "+feeID);
@@ -125,11 +112,10 @@ public class SendRemittanceViewModel extends ViewModel {
                 );
     }
 
-
     @SuppressLint("CheckResult")
-    public void sendRemittance() {
-        sendRemittanceUseCase.sendRemittance(
-                        feeId.getValue(), expressId.getValue(), senderName.getValue(),senderPhone.getValue(), receiverName.getValue(), receiverPhone.getValue(), amount.getValue()
+    public void payRemittance() {
+        payRemittanceUseCase.payRemittance(
+                        remId.getValue(), senderName.getValue(), receiverName.getValue(), amount.getValue(),feeId.getValue()
                 )
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe( responseState -> {
@@ -139,7 +125,6 @@ public class SendRemittanceViewModel extends ViewModel {
                         // Show loading state
                         dialogState.setValue(true);
                         receiverNameError.setValue("");
-                        receiverPhoneError.setValue("");
                         sendStateMesssage.setValue("");
 
                     }
@@ -158,9 +143,6 @@ public class SendRemittanceViewModel extends ViewModel {
                     }
                 });
     }
-
-
-
 
     public MutableLiveData<Boolean> getSendState() {
         return sendState;
@@ -182,14 +164,6 @@ public class SendRemittanceViewModel extends ViewModel {
         return receiverNameError;
     }
 
-    public MutableLiveData<String> getReceiverPhone() {
-        return receiverPhone;
-    }
-
-    public MutableLiveData<String> getReceiverPhoneError() {
-        return receiverPhoneError;
-    }
-
     public MutableLiveData<String> getSenderName() {
         return senderName;
     }
@@ -198,19 +172,11 @@ public class SendRemittanceViewModel extends ViewModel {
         return senderNameError;
     }
 
-    public MutableLiveData<String> getSenderPhone() {
-        return senderPhone;
-    }
-
-    public MutableLiveData<String> getSenderPhoneError() {
-        return senderPhoneError;
-    }
-
     public MutableLiveData<String> getAmount() {
         return amount;
     }
 
-    public MutableLiveData<String> getExpressId() {
-        return expressId;
+    public MutableLiveData<String> getRemId() {
+        return remId;
     }
 }

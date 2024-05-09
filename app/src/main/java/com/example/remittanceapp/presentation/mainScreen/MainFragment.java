@@ -43,5 +43,12 @@ public class MainFragment extends Fragment {
                 Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_sendRemittanceFragment);
             }
         });
+
+        binding.receiveRemCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_payRemittanceFragment2);
+            }
+        });
     }
 }

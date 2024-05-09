@@ -12,12 +12,6 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_sendRemittanceFragment"
-            app:destination="@id/sendRemittanceFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true"
-            />
-        <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:popUpTo="@id/loginFragment"
@@ -30,6 +24,7 @@
         android:name="com.example.remittanceapp.presentation.sendRemittanceScreen.SendRemittanceFragment"
         android:label="fragment_send_remittance"
         tools:layout="@layout/fragment_send_remittance" />
+
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.remittanceapp.presentation.mainScreen.MainFragment"
@@ -38,5 +33,13 @@
         <action
             android:id="@+id/action_mainFragment_to_sendRemittanceFragment"
             app:destination="@id/sendRemittanceFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_payRemittanceFragment2"
+            app:destination="@id/payRemittanceFragment2" />
     </fragment>
+
+    <fragment
+        android:id="@+id/payRemittanceFragment2"
+        android:name="com.example.remittanceapp.presentation.payRemittanceScreen.PayRemittanceFragment"
+        android:label="PayRemittanceFragment" />
 </navigation>

@@ -11,7 +11,7 @@
     <string name="loading"> يرجى الانتظار </string>
     <string name="sending_remittance_title">إرسال حوالة</string>
     <string name="sending_remittance_description">يمكنك إرسال حوالة محلية لاي شخص من حسابك مباشرة</string>
-    <string name="receiving_remittance_title">استقبال حوالة</string>
+    <string name="receiving_remittance_title">استلام حوالة</string>
     <string name="receiving_remittance_description">يمكنك استقبال حوالتك الان مباشرة برقم الحوالة</string>
     <string name="money">المبلغ المدفوع</string>
     <string name="sender_name">ادخل اسم المرسل الرباعي</string>
@@ -21,4 +21,7 @@
     <string name="send_remittance">ارسال</string>
     <string name="receiverInfo">بيانات المستلم</string>
     <string name="senderInfo">بيانات المرسل</string>
+    <string name="remittance_no">رقم الحوالة</string>
+    <string name="remittanceInfo">معلومات الحوالة</string>
+    <string name="receive">استلام</string>
 </resources>

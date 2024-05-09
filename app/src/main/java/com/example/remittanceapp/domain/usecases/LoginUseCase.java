@@ -20,6 +20,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class LoginUseCase {
     private Repository repository;
     private UserDataStore userDataStore;
+
     @Inject
     public LoginUseCase(
             Repository repository,

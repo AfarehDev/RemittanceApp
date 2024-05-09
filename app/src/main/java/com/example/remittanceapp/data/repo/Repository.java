@@ -5,6 +5,8 @@ import com.example.remittanceapp.domain.model.IncomeFeeRequestBody;
 import com.example.remittanceapp.domain.model.IncomingFee;
 import com.example.remittanceapp.domain.model.LoginRequestBody;
 import com.example.remittanceapp.domain.model.LoginResponse;
+import com.example.remittanceapp.domain.model.PayRemittRequestBody;
+import com.example.remittanceapp.domain.model.PayRemittance;
 import com.example.remittanceapp.domain.model.SendRemittance;
 import com.example.remittanceapp.domain.model.SendRemittanceRequestBody;
 
@@ -32,6 +34,10 @@ public class Repository {
 
     public Single<SendRemittance> sendRemittance(SendRemittanceRequestBody body) {
         return remoteAPI.sendRemittance(body);
+    }
+
+    public Single<PayRemittance> payRemittance(PayRemittRequestBody body) {
+        return remoteAPI.payRemittance(body);
     }
 
 }

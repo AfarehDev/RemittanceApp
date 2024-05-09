@@ -45,7 +45,7 @@ public class SendRemittanceRequestBody {
         this.agentExtraFee = 0;
         this.currancyId = 1;
         this.pourposeId = 1;
-        this.isSusbended = true;
+        this.isSusbended = false;
         this.ignoreRedundentCheck = true;
         this.pcName = "pcName";
         this.comment = "comment";
