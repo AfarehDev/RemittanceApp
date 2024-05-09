@@ -45,7 +45,7 @@ public class SendRemittanceViewModel extends ViewModel {
     private MutableLiveData<String> senderPhoneError = new MutableLiveData<>();
 
     private MutableLiveData<String> amount = new MutableLiveData<>();
-    private MutableLiveData<String> expressId = new MutableLiveData<>("1234");
+    private MutableLiveData<String> expressId = new MutableLiveData<>("5432");
     private MutableLiveData<Integer> feeId = new MutableLiveData<>(0);
 
     @Inject

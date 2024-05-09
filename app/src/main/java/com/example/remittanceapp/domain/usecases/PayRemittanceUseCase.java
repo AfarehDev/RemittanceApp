@@ -26,6 +26,17 @@ public class PayRemittanceUseCase{
         this.repository = repository;
     }
 
+
+    /**
+     * This method receive a remittance and returns an Observable with ResponseState containing
+     * the result of the operation.
+     *
+     * @param feeId        The ID of the fee associated with the remittance.
+     * @param senderName   The name of the sender.
+     * @param receiverName The name of the receiver.
+     * @param amountPaid   The amount paid for the remittance.
+     * @return An Observable<ResponseState<String>> representing the result of the remittance operation.
+     */
     @SuppressLint("CheckResult")
     public Observable<ResponseState<String>> payRemittance(
             String remID,
@@ -48,7 +59,7 @@ public class PayRemittanceUseCase{
                 observable.subscribe(
                         response ->{
                             if (response.isStatus()){
-                                Log.d("PayRemittance" , "response.isStatus(): "+response.isStatus());
+                                Log.d("PayRemittance" , "response.isStatus(): "+response.isStatus()+", referance: "+response.getReferance()+", referance2: "+response.getReferance2());
                                 emitter.onNext(new ResponseState.Success<>(response.getDescription()+", referance: "+response.getReferance()+", referance2: "+response.getReferance2()));
                             }else {
                                 Log.e("PayRemittance" , "response.isStatus(): "+response.isStatus());

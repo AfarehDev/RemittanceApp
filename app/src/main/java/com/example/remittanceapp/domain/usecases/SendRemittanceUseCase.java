@@ -62,7 +62,7 @@ public class SendRemittanceUseCase {
                 observable.subscribe(
                         response ->{
                             if (response.isStatus()){
-                                Log.d("SendRemittance" , "response.isStatus(): "+response.isStatus());
+                                Log.d("SendRemittance" , "response.isStatus(): "+response.isStatus()+", referance: "+response.getReferance()+", referance2: "+response.getReferance2());
                                 emitter.onNext(new ResponseState.Success<>(response.getDescription()+", referance: "+response.getReferance()+", referance2: "+response.getReferance2()));
                             }else {
                                 Log.e("SendRemittance" , "response.isStatus(): "+response.isStatus());

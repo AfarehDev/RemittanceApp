@@ -32,14 +32,14 @@ public class PayRemittanceViewModel extends ViewModel {
     private MutableLiveData<Boolean> dialogState = new MutableLiveData<>();
     private MutableLiveData<String> sendStateMesssage = new MutableLiveData<>();
 
-    private MutableLiveData<String> receiverName = new MutableLiveData<>("احمد محمد قاسم اليمني");
+    private MutableLiveData<String> receiverName = new MutableLiveData<>();
     private MutableLiveData<String> receiverNameError = new MutableLiveData<>();
 
-    private MutableLiveData<String> senderName = new MutableLiveData<>("محمد علي محمد قاسم");
+    private MutableLiveData<String> senderName = new MutableLiveData<>();
     private MutableLiveData<String> senderNameError = new MutableLiveData<>();
 
-    private MutableLiveData<String> amount = new MutableLiveData<>("70000");
-    private MutableLiveData<String> remId = new MutableLiveData<>("698753948");
+    private MutableLiveData<String> amount = new MutableLiveData<>();
+    private MutableLiveData<String> remId = new MutableLiveData<>();
     private MutableLiveData<Integer> feeId = new MutableLiveData<>(0);
 
     @Inject
