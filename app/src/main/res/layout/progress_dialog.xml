@@ -25,6 +25,7 @@
             android:layout_margin="7dp"
             android:layout_toEndOf="@+id/progressBar"
             android:text="@string/loading"
+            android:fontFamily="@font/cairo_regular"
             android:textColor="@color/primary_dark_color"
             android:textStyle="bold" />
     </RelativeLayout>

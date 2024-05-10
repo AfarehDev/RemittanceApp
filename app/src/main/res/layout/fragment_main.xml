@@ -51,6 +51,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="16dp"
                         android:text="@string/sending_remittance_title"
+                        android:fontFamily="@font/kufam_regular"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -60,6 +61,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="8dp"
                         android:textAlignment="center"
+                        android:fontFamily="@font/cairo_regular"
                         android:text="@string/sending_remittance_description"
                         android:textColor="@color/neutral_grey"
                         android:textSize="16sp" />
@@ -97,6 +99,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/receiving_remittance_title"
                         android:textSize="20sp"
+                        android:fontFamily="@font/kufam_regular"
                         android:layout_gravity="center_horizontal"
                         android:textColor="@android:color/black"
                         android:layout_marginTop="16dp" />
@@ -108,6 +111,7 @@
                         android:textSize="16sp"
                         android:layout_gravity="center_horizontal"
                         android:textAlignment="center"
+                        android:fontFamily="@font/cairo_regular"
                         android:textColor="@color/neutral_grey"
                         android:layout_marginTop="8dp" />
                 </LinearLayout>
